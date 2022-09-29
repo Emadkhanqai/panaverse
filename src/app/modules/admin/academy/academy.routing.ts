@@ -6,27 +6,39 @@ import { AcademyCategoriesResolver, AcademyCourseResolver, AcademyCoursesResolve
 
 export const academyRoutes: Route[] = [
     {
-        path     : '',
+        path: '',
         component: AcademyComponent,
-        resolve  : {
+        resolve: {
             categories: AcademyCategoriesResolver
         },
-        children : [
+        children: [
             {
-                path     : '',
+                path: '',
                 pathMatch: 'full',
                 component: AcademyListComponent,
-                resolve  : {
+                resolve: {
                     courses: AcademyCoursesResolver
                 }
             },
             {
-                path     : ':id',
-                component: AcademyDetailsComponent,
-                resolve  : {
-                    course: AcademyCourseResolver
-                }
+                path: 'course',
+                children: [
+                    {
+                        path: '',
+                        redirectTo: '/',
+                        pathMatch:'full'
+
+                    },
+                    {
+                        path: ':id',
+                        component: AcademyDetailsComponent,
+                        resolve: {
+                            course: AcademyCourseResolver
+                        }
+                    }
+                ]
             }
+
         ]
     }
 ];

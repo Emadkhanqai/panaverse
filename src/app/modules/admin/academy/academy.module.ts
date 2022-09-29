@@ -17,12 +17,14 @@ import { AcademyComponent } from 'app/modules/admin/academy/academy.component';
 import { AcademyDetailsComponent } from 'app/modules/admin/academy/details/details.component';
 import { AcademyListComponent } from 'app/modules/admin/academy/list/list.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { SafePipe } from 'app/shared/safe.pipe';
 
 @NgModule({
     declarations: [
         AcademyComponent,
         AcademyDetailsComponent,
-        AcademyListComponent
+        AcademyListComponent,
+        SafePipe
     ],
     imports     : [
         RouterModule.forChild(academyRoutes),

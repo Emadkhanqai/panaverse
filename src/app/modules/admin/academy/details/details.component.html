@@ -1,5 +1,7 @@
 <div class="absolute inset-0 flex flex-col min-w-0 overflow-hidden">
 
+
+
     <mat-drawer-container class="flex-auto h-full">
 
         <!-- Drawer -->
@@ -13,12 +15,12 @@
                 <!-- Back to courses -->
                 <a
                     class="inline-flex items-center leading-6 text-primary hover:underline"
-                    [routerLink]="['..']">
+                    [routerLink]="['../..']">
                     <span class="inline-flex items-center">
                         <mat-icon
                             class="icon-size-5 text-current"
                             [svgIcon]="'heroicons_solid:arrow-sm-left'"></mat-icon>
-                        <span class="ml-1.5 font-medium leading-5">Back to courses</span>
+                        <span class="ml-1.5 font-medium leading-5">Back to assignments</span>
                     </span>
                 </a>
                 <!-- Course category -->
@@ -124,9 +126,15 @@
                     <ng-container *ngFor="let step of course.steps; trackBy: trackByFn">
                         <mat-tab>
                             <ng-template matTabContent>
-                                <div
-                                    class="prose prose-sm max-w-3xl mx-auto sm:my-2 lg:mt-4 p-6 sm:p-10 sm:py-12 rounded-2xl shadow overflow-hidden bg-card"
-                                    [innerHTML]="step.content"></div>
+                                <div style="max-width: 69rem !important; "
+                                    class="prose prose-sm  mx-auto sm:my-2 lg:mt-4 p-6 sm:p-10 sm:py-12 rounded-2xl shadow overflow-hidden bg-card"
+                                    >
+                                    <div [innerHTML]="step.content"></div>
+                                    <br>
+                                    <iframe  [src]="step.url | safe" width="100%" height="100%"
+                                    style="min-height: 600px ;" frameBorder="0"></iframe>
+                                </div>
+
                             </ng-template>
                         </mat-tab>
                     </ng-container>

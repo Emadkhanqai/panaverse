@@ -80,7 +80,7 @@
                         <!-- Course -->
                         <div
                             class="flex flex-col h-96 shadow rounded-2xl overflow-hidden bg-card"
-                            [routerLink]="[course.id]"
+                            [routerLink]="'course/'+[course.id]"
                             style="cursor:pointer"
                         >
                             <div class="flex flex-col p-6">
@@ -174,7 +174,7 @@
                                 >
                                     <a
                                         mat-stroked-button
-                                        [routerLink]="[course.id]"
+                                        [routerLink]="'course/'+[course.id]"
                                     >
                                         <span class="inline-flex items-center">
                                             View
