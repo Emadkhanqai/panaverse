@@ -15,7 +15,7 @@
             <div class="flex items-center h-20 pt-6 px-8">
                 <img
                     class="w-24"
-                    src="assets/images/logo/logo-text-on-dark.svg"
+                    src="assets/images/pana-logo.jpg"
                     alt="Logo image">
             </div>
         </ng-container>
@@ -31,16 +31,24 @@
             <!-- Logo -->
             <div class="flex items-center mx-2 lg:mr-8">
                 <div class="hidden lg:flex">
-                    <img
+                    <a routerLink="/">  <img
                         class="dark:hidden w-24"
-                        src="assets/images/logo/logo-text.svg">
-                    <img
+                        src="assets/images/pana-logo.jpg"
+                        alt="Logo image"
+                    /></a>
+                    <!-- Dark version -->
+                    <a routerLink="/">   <img
                         class="hidden dark:flex w-24"
-                        src="assets/images/logo/logo-text-on-dark.svg">
+                        src="assets/images/pana-logo.jpg"
+                        alt="Logo image"
+                    /></a>
                 </div>
-                <img
-                    class="flex lg:hidden w-8"
-                    src="assets/images/logo/logo.svg">
+                <a routerLink="/">
+                    <img
+                        class="flex lg:hidden w-8"
+                        src="assets/images/pana-logo.jpg"
+                        alt="Logo image"
+                    /></a>
             </div>
             <!-- Horizontal navigation -->
             <fuse-horizontal-navigation
@@ -58,9 +66,9 @@
         </ng-container>
         <!-- Components -->
         <div class="flex items-center pl-2 ml-auto space-x-0.5 sm:space-x-2">
-            <languages></languages>
+            <!-- <languages></languages> -->
             <fuse-fullscreen class="hidden md:block"></fuse-fullscreen>
-            <search [appearance]="'bar'"></search>
+            <!-- <search [appearance]="'bar'"></search>
             <shortcuts></shortcuts>
             <messages></messages>
             <notifications></notifications>
@@ -70,7 +78,7 @@
                 (click)="quickChat.toggle()">
                 <mat-icon [svgIcon]="'heroicons_outline:chat-alt-2'"></mat-icon>
             </button>
-            <user></user>
+            <user></user> -->
         </div>
     </div>
 
@@ -82,11 +90,79 @@
     </div>
 
     <!-- Footer -->
-    <div class="relative flex flex-0 items-center w-full h-14 sm:h-20 px-4 md:px-6 z-49 border-t bg-card dark:bg-transparent print:hidden">
-        <span class="font-medium text-secondary">Fuse &copy; {{currentYear}}</span>
+    <div class="relative items-center w-full h-14 sm:h-20 px-4 md:px-6 z-49 border-t bg-card dark:bg-transparent print:hidden"   style="padding-top: 25px !important">
+        <span class="font-medium text-secondary"
+                >Developed By Emad Khan
+            </span>
+            <span class="font-medium text-secondary" style="float: right">
+                <span class="footer-social-icons">
+                    <ul>
+                        <li>
+                            <a
+                                href="https://www.facebook.com/emadkhan1991/"
+                                target="blank"
+                            >
+                                <img src="assets/images/icons/facebook.png" />
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://twitter.com/cryptogeekpk"
+                                target="blank"
+                            >
+                                <img src="assets/images/icons/twitter.png" />
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://discord.com/users/cryptogeek#2203"
+                                target="blank"
+                            >
+                                <img src="assets/images/icons/discord.png" />
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://github.com/Emadkhanqai"
+                                target="blank"
+                            >
+                                <img src="assets/images/icons/github.png" />
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://api.whatsapp.com/send/?phone=923452362514"
+                                target="blank"
+                            >
+                                <img src="assets/images/icons/whatsapp.png" />
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://www.linkedin.com/in/emadhkhan/"
+                                target="blank"
+                            >
+                                <img src="assets/images/icons/linkedin.png" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+923452362514" target="blank">
+                                <img src="assets/images/icons/mobile.png" />
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="mailto:emadkhanqai@gmail.com"
+                                target="blank"
+                            >
+                                <img src="assets/images/icons/gmail.png" />
+                            </a>
+                        </li>
+                    </ul>
+                </span>
+            </span>
     </div>
 
 </div>
-
 <!-- Quick chat -->
-<quick-chat #quickChat="quickChat"></quick-chat>
+<!-- <quick-chat #quickChat="quickChat"></quick-chat> -->

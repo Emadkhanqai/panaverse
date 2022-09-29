@@ -9,15 +9,15 @@ import { InitialDataResolver } from 'app/app.resolvers';
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 export const appRoutes: Route[] = [
 
-    // Redirect empty path to '/example'
-    {path: '', pathMatch : 'full', redirectTo: 'example'},
+    // Redirect empty path to '/analytics'
+    {path: '', pathMatch : 'full', redirectTo: 'analytics'},
 
-    // Redirect signed in user to the '/example'
+    // Redirect signed in user to the '/analytics'
     //
     // After the user signs in, the sign in page will redirect the user to the 'signed-in-redirect'
     // path. Below is another redirection for that path to redirect the user to the desired
     // location. This is a small convenience to keep all main routes together here on this file.
-    {path: 'signed-in-redirect', pathMatch : 'full', redirectTo: 'example'},
+    {path: 'signed-in-redirect', pathMatch : 'full', redirectTo: 'analytics'},
 
     // Auth routes for guests
     {
@@ -74,7 +74,43 @@ export const appRoutes: Route[] = [
             initialData: InitialDataResolver,
         },
         children   : [
-            {path: 'example', loadChildren: () => import('app/modules/admin/example/example.module').then(m => m.ExampleModule)},
+            {path: 'analytics', loadChildren: () => import('app/modules/admin/analytics/analytics.module').then(m => m.AnalyticsModule)},
+        ]
+    },
+    {
+        path       : '',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        component  : LayoutComponent,
+        resolve    : {
+            initialData: InitialDataResolver,
+        },
+        children   : [
+            {path: 'help-center', loadChildren: () => import('app/modules/admin/help-center/help-center.module').then(m => m.HelpCenterModule)},
+        ]
+    },
+    {
+        path       : '',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        component  : LayoutComponent,
+        resolve    : {
+            initialData: InitialDataResolver,
+        },
+        children   : [
+            {path: 'assignment', loadChildren: () => import('app/modules/admin/academy/academy.module').then(m => m.AcademyModule)},
+        ]
+    },
+    {
+        path       : '',
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        component  : LayoutComponent,
+        resolve    : {
+            initialData: InitialDataResolver,
+        },
+        children   : [
+            {path: 'learn', loadChildren: () => import('app/modules/admin/learn/coming-soon.module').then(m => m.ComingSoonModule)},
         ]
     }
 ];
