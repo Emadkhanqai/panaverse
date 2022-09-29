@@ -7,25 +7,26 @@ import { AcademyService } from 'app/modules/admin/academy/academy.service';
 import { Category, Course } from 'app/modules/admin/academy/academy.types';
 
 @Component({
-    selector       : 'academy-list',
-    templateUrl    : './list.component.html',
-    encapsulation  : ViewEncapsulation.None,
+    selector: 'academy-list',
+    templateUrl: './list.component.html',
+    encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AcademyListComponent implements OnInit, OnDestroy
-{
+export class AcademyListComponent implements OnInit, OnDestroy {
     categories: Category[];
     courses: Course[];
     filteredCourses: Course[];
     filters: {
+        quarter$: BehaviorSubject<string>;
         categorySlug$: BehaviorSubject<string>;
         query$: BehaviorSubject<string>;
         hideCompleted$: BehaviorSubject<boolean>;
     } = {
-        categorySlug$ : new BehaviorSubject('all'),
-        query$        : new BehaviorSubject(''),
-        hideCompleted$: new BehaviorSubject(false)
-    };
+            quarter$: new BehaviorSubject('all'),
+            categorySlug$: new BehaviorSubject('all'),
+            query$: new BehaviorSubject(''),
+            hideCompleted$: new BehaviorSubject(false)
+        };
 
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
@@ -37,8 +38,7 @@ export class AcademyListComponent implements OnInit, OnDestroy
         private _changeDetectorRef: ChangeDetectorRef,
         private _router: Router,
         private _academyService: AcademyService
-    )
-    {
+    ) {
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -48,8 +48,7 @@ export class AcademyListComponent implements OnInit, OnDestroy
     /**
      * On init
      */
-    ngOnInit(): void
-    {
+    ngOnInit(): void {
         // Get the categories
         this._academyService.categories$
             .pipe(takeUntil(this._unsubscribeAll))
@@ -71,29 +70,32 @@ export class AcademyListComponent implements OnInit, OnDestroy
             });
 
         // Filter the courses
-        combineLatest([this.filters.categorySlug$, this.filters.query$, this.filters.hideCompleted$])
-            .subscribe(([categorySlug, query, hideCompleted]) => {
+        combineLatest([this.filters.quarter$, this.filters.categorySlug$, this.filters.query$, this.filters.hideCompleted$])
+            .subscribe(([quarter, categorySlug, query, hideCompleted]) => {
 
                 // Reset the filtered courses
                 this.filteredCourses = this.courses;
 
+                // Filter by quarter
+                if (quarter !== 'all') {
+                    this.filteredCourses = this.filteredCourses.filter(course => course.quarter === quarter);
+                }
+
                 // Filter by category
-                if ( categorySlug !== 'all' )
-                {
+                if (categorySlug !== 'all') {
                     this.filteredCourses = this.filteredCourses.filter(course => course.category === categorySlug);
                 }
 
                 // Filter by search query
-                if ( query !== '' )
-                {
-                    this.filteredCourses = this.filteredCourses.filter(course => course.title.toLowerCase().includes(query.toLowerCase())
+                if (query !== '') {
+                    this.filteredCourses = this.filteredCourses.filter(course =>
+                        course.title.toLowerCase().includes(query.toLowerCase())
                         || course.description.toLowerCase().includes(query.toLowerCase())
                         || course.category.toLowerCase().includes(query.toLowerCase()));
                 }
 
                 // Filter by completed
-                if ( hideCompleted )
-                {
+                if (hideCompleted) {
                     this.filteredCourses = this.filteredCourses.filter(course => course.progress.completed === 0);
                 }
             });
@@ -102,8 +104,7 @@ export class AcademyListComponent implements OnInit, OnDestroy
     /**
      * On destroy
      */
-    ngOnDestroy(): void
-    {
+    ngOnDestroy(): void {
         // Unsubscribe from all subscriptions
         this._unsubscribeAll.next(null);
         this._unsubscribeAll.complete();
@@ -118,8 +119,7 @@ export class AcademyListComponent implements OnInit, OnDestroy
      *
      * @param query
      */
-    filterByQuery(query: string): void
-    {
+    filterByQuery(query: string): void {
         this.filters.query$.next(query);
     }
 
@@ -128,9 +128,17 @@ export class AcademyListComponent implements OnInit, OnDestroy
      *
      * @param change
      */
-    filterByCategory(change: MatSelectChange): void
-    {
+    filterByCategory(change: MatSelectChange): void {
         this.filters.categorySlug$.next(change.value);
+    }
+
+    /**
+    * Filter by quarter
+    *
+    * @param change
+    */
+    filterByQuarter(change: MatSelectChange): void {
+        this.filters.quarter$.next(change.value);
     }
 
     /**
@@ -138,8 +146,7 @@ export class AcademyListComponent implements OnInit, OnDestroy
      *
      * @param change
      */
-    toggleCompleted(change: MatSlideToggleChange): void
-    {
+    toggleCompleted(change: MatSlideToggleChange): void {
         this.filters.hideCompleted$.next(change.checked);
     }
 
@@ -149,8 +156,7 @@ export class AcademyListComponent implements OnInit, OnDestroy
      * @param index
      * @param item
      */
-    trackByFn(index: number, item: any): any
-    {
+    trackByFn(index: number, item: any): any {
         return item.id || index;
     }
 }

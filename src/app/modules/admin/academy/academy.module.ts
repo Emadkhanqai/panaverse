@@ -8,6 +8,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatRadioModule} from '@angular/material/radio';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FuseFindByKeyPipeModule } from '@fuse/pipes/find-by-key';
 import { SharedModule } from 'app/shared/shared.module';
@@ -34,6 +35,7 @@ import { MatTabsModule } from '@angular/material/tabs';
         MatSidenavModule,
         MatSlideToggleModule,
         MatTooltipModule,
+        MatRadioModule,
         FuseFindByKeyPipeModule,
         SharedModule,
         MatTabsModule
