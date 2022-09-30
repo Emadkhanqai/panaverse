@@ -1,0 +1,85 @@
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+const age = 20;
+generateResults();
+
+// HELPER FUNCTIONS
+function print(value) {
+  document.writeln(value);
+}
+
+function lineBreak(howMany = 1) {
+  for (var i = 0; i < howMany; i++) {
+    document.writeln('<br>');
+  }
+}
+
+function separator() {
+  print('<hr>');
+}
+
+function generateResults() {
+  switch (true) {
+    case age < 2:
+      print('person is a baby');
+      break;
+
+    case age >= 2 && age < 4:
+      print('person is a toddler');
+      break;
+
+    case age >= 4 && age < 13:
+      print('person is a kid');
+      break;
+
+    case age >= 13 && age < 20:
+      print('person is a teenager');
+      break;
+
+    case age >= 20 && age < 65:
+      print('person is an adult');
+      break;
+
+    case age > 65:
+      print('Person is elder');
+      break;
+
+    default:
+      print('Nothing to say :)');
+  }
+}
+
+
+// HELPER FUNCTIONS
+function print(value) {
+  document.writeln(value);
+}
+
+function lineBreak(howMany = 1) {
+  for (var i = 0; i < howMany; i++) {
+    document.writeln('<br>');
+  }
+}
+
+function separator() {
+  print('<hr>');
+}
+
+
+    </script>
+</body>
+</html>
+</script>
+</body>
+</html>
