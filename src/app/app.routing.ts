@@ -10,14 +10,14 @@ import { InitialDataResolver } from 'app/app.resolvers';
 export const appRoutes: Route[] = [
 
     // Redirect empty path to '/analytics'
-    {path: '', pathMatch : 'full', redirectTo: 'analytics'},
+    {path: '', pathMatch : 'full', redirectTo: 'learn'},
 
     // Redirect signed in user to the '/analytics'
     //
     // After the user signs in, the sign in page will redirect the user to the 'signed-in-redirect'
     // path. Below is another redirection for that path to redirect the user to the desired
     // location. This is a small convenience to keep all main routes together here on this file.
-    {path: 'signed-in-redirect', pathMatch : 'full', redirectTo: 'analytics'},
+    {path: 'signed-in-redirect', pathMatch : 'full', redirectTo: 'learn'},
 
     // Auth routes for guests
     {
@@ -65,18 +65,18 @@ export const appRoutes: Route[] = [
     },
 
     // Admin routes
-    {
-        path       : '',
-        canActivate: [AuthGuard],
-        canActivateChild: [AuthGuard],
-        component  : LayoutComponent,
-        resolve    : {
-            initialData: InitialDataResolver,
-        },
-        children   : [
-            {path: 'analytics', loadChildren: () => import('app/modules/admin/analytics/analytics.module').then(m => m.AnalyticsModule)},
-        ]
-    },
+    // {
+    //     path       : '',
+    //     canActivate: [AuthGuard],
+    //     canActivateChild: [AuthGuard],
+    //     component  : LayoutComponent,
+    //     resolve    : {
+    //         initialData: InitialDataResolver,
+    //     },
+    //     children   : [
+    //         {path: 'analytics', loadChildren: () => import('app/modules/admin/analytics/analytics.module').then(m => m.AnalyticsModule)},
+    //     ]
+    // },
     {
         path       : '',
         canActivate: [AuthGuard],

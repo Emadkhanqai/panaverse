@@ -1,21 +1,18 @@
-export interface FaqCategory
-{
+export interface FaqCategory {
     id: string;
     slug: string;
     title: string;
     faqs?: Faq[];
 }
 
-export interface Faq
-{
+export interface Faq {
     id: string;
     categoryId: string;
     question: string;
     answer: string;
 }
 
-export interface GuideCategory
-{
+export interface GuideCategory {
     id: string;
     slug: string;
     title: string;
@@ -24,12 +21,12 @@ export interface GuideCategory
     guides?: Guide[];
 }
 
-export interface Guide
-{
+export interface Guide {
     id: string;
     categoryId: string;
     slug: string;
     title: string;
     subtitle?: string;
     content?: string;
+    url?: string;
 }

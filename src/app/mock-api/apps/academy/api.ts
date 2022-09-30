@@ -6,8 +6,7 @@ import { categories as categoriesData, courses as coursesData, demoCourseSteps a
 @Injectable({
     providedIn: 'root'
 })
-export class AcademyMockApi
-{
+export class AcademyMockApi {
     private _categories: any[] = categoriesData;
     private _courses: any[] = coursesData;
     private _demoCourseSteps: any[] = demoCourseStepsData;
@@ -15,8 +14,7 @@ export class AcademyMockApi
     /**
      * Constructor
      */
-    constructor(private _fuseMockApiService: FuseMockApiService)
-    {
+    constructor(private _fuseMockApiService: FuseMockApiService) {
         // Register Mock API handlers
         this.registerHandlers();
     }
@@ -28,8 +26,7 @@ export class AcademyMockApi
     /**
      * Register Mock API handlers
      */
-    registerHandlers(): void
-    {
+    registerHandlers(): void {
         // -----------------------------------------------------------------------------------------------------
         // @ Categories - GET
         // -----------------------------------------------------------------------------------------------------
@@ -64,19 +61,17 @@ export class AcademyMockApi
         // -----------------------------------------------------------------------------------------------------
         this._fuseMockApiService
             .onGet('api/apps/academy/courses/course')
-            .reply(({request}) => {
+            .reply(({ request }) => {
 
                 // Get the id from the params
                 const id = request.params.get('id');
 
                 // Clone the courses and steps
                 const courses = cloneDeep(this._courses);
-                const steps = cloneDeep(this._demoCourseSteps);
-
+                const steps = cloneDeep(this._demoCourseSteps.filter(x => x.courseId == id));
                 // Find the course and attach steps to it
                 const course = courses.find(item => item.id === id);
-                if ( course )
-                {
+                if (course) {
                     course.steps = steps;
                 }
 

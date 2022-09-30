@@ -26,13 +26,15 @@ export const categories = [
         slug: 'ms'
     }
 ];
+
 export const courses = [
     {
         id: '1',
         title: 'Basics of Javascript',
         slug: 'basics-of-angular',
         description: 'Getting Started Exercises with JavaScript and Node.js',
-        category: 'js', quarter: 'q1',
+        category: 'js',
+        quarter: 'q1',
         duration: 60,
         totalSteps: 43,
         updatedAt: 'Sep 29, 2022',
@@ -736,6 +738,19 @@ export const demoCourseSteps = [
         content: `<h2 class="text-2xl sm:text-3xl">Task:</h2>
         <div>
         Cars: Write a function that stores information about a car in a Object. The function should always receive a manufacturer and a model name. It should then accept an arbitrary number of keyword arguments. Call the function with the required information and two other name-value pairs, such as a color or an optional feature. Print the Object that’s returned to make sure all the information was stored correctly.
+        </div>
+        `
+    },
+
+    {
+        order: 0,
+        courseId: '2',
+        title: 'Assignment #1',
+        url: '',
+        subtitle: '',
+        content: `<h2 class="text-2xl sm:text-3xl">Task:</h2>
+        <div>
+           <h1>Coming Soon</h1> 
         </div>
         `
     },

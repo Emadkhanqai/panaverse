@@ -14,6 +14,7 @@ import { HelpCenterGuidesCategoryComponent } from 'app/modules/admin/help-center
 import { HelpCenterGuidesGuideComponent } from 'app/modules/admin/help-center/guides/guide/guide.component';
 import { HelpCenterSupportComponent } from 'app/modules/admin/help-center/support/support.component';
 import { helpCenterRoutes } from 'app/modules/admin/help-center/help-center.routing';
+import { SafePipe } from 'app/shared/safe.pipe';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import { helpCenterRoutes } from 'app/modules/admin/help-center/help-center.rout
         HelpCenterGuidesComponent,
         HelpCenterGuidesCategoryComponent,
         HelpCenterGuidesGuideComponent,
-        HelpCenterSupportComponent
+        HelpCenterSupportComponent,
+        SafePipe
     ],
     imports     : [
         RouterModule.forChild(helpCenterRoutes),
