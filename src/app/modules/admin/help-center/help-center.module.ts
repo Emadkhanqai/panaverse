@@ -24,7 +24,6 @@ import { SafePipe } from 'app/shared/safe.pipe';
         HelpCenterGuidesCategoryComponent,
         HelpCenterGuidesGuideComponent,
         HelpCenterSupportComponent,
-        SafePipe
     ],
     imports     : [
         RouterModule.forChild(helpCenterRoutes),

@@ -4,19 +4,23 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SafePipe } from './safe.pipe';
 
 @NgModule({
+    declarations: [
+        SafePipe
+
+    ],
     imports: [
         CommonModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+
     ],
     exports: [
         CommonModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        SafePipe
     ],
-    declarations: [
-    ]
+
 })
-export class SharedModule
-{
+export class SharedModule {
 }

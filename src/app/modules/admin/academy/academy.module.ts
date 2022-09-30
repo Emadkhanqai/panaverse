@@ -24,7 +24,6 @@ import { SafePipe } from 'app/shared/safe.pipe';
         AcademyComponent,
         AcademyDetailsComponent,
         AcademyListComponent,
-        SafePipe
     ],
     imports     : [
         RouterModule.forChild(academyRoutes),
