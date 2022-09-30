@@ -1,3 +1,4 @@
+
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, NgForm, Validators } from '@angular/forms';
 import { fuseAnimations } from '@fuse/animations';
@@ -5,17 +6,16 @@ import { FuseAlertType } from '@fuse/components/alert';
 import { AuthService } from 'app/core/auth/auth.service';
 
 @Component({
-    selector     : 'coming-soon-classic',
-    templateUrl  : './coming-soon.component.html',
+    selector: 'coming-soon-classic',
+    templateUrl: './coming-soon.component.html',
     encapsulation: ViewEncapsulation.None,
-    animations   : fuseAnimations
+    animations: fuseAnimations
 })
-export class ComingSoonModernReversedComponent implements OnInit
-{
+export class ComingSoonModernReversedComponent implements OnInit {
     @ViewChild('comingSoonNgForm') comingSoonNgForm: NgForm;
 
     alert: { type: FuseAlertType; message: string } = {
-        type   : 'success',
+        type: 'success',
         message: ''
     };
     comingSoonForm: UntypedFormGroup;
@@ -27,8 +27,7 @@ export class ComingSoonModernReversedComponent implements OnInit
     constructor(
         private _authService: AuthService,
         private _formBuilder: UntypedFormBuilder
-    )
-    {
+    ) {
     }
 
     // -----------------------------------------------------------------------------------------------------
@@ -38,8 +37,7 @@ export class ComingSoonModernReversedComponent implements OnInit
     /**
      * On init
      */
-    ngOnInit(): void
-    {
+    ngOnInit(): void {
         // Create the form
         this.comingSoonForm = this._formBuilder.group({
             email: ['', [Validators.required, Validators.email]]
@@ -53,11 +51,9 @@ export class ComingSoonModernReversedComponent implements OnInit
     /**
      * Sign in
      */
-    register(): void
-    {
+    register(): void {
         // Return if the form is invalid
-        if ( this.comingSoonForm.invalid )
-        {
+        if (this.comingSoonForm.invalid) {
             return;
         }
 
@@ -79,7 +75,7 @@ export class ComingSoonModernReversedComponent implements OnInit
 
             // Set the alert
             this.alert = {
-                type   : 'success',
+                type: 'success',
                 message: 'You have been registered to the list.'
             };
 
