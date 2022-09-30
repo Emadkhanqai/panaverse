@@ -4,9 +4,6 @@ import { UntypedFormBuilder, UntypedFormGroup, NgForm, Validators } from '@angul
 import { fuseAnimations } from '@fuse/animations';
 import { HelpCenterService } from 'app/modules/admin/help-center/help-center.service';
 
-import '../../../../../assets/smtp.js';
-
-declare let Email: any;
 
 @Component({
     selector: 'help-center-support',
@@ -62,32 +59,6 @@ export class HelpCenterSupportComponent implements OnInit {
      * Send the form
      */
     sendForm(): void {
-        // Email.send({
-        //     Host: 'smtp.elasticemail.com',
-        //     Username: 'emadkhanqai@gmail.com',
-        //     Password: '84EA31F69123DB76BD2880401205C00BEC86',
-        //     To: 'emadkhanqai@gmail.com',
-        //     From: 'spidergrey.emad@gmail.com',
-        //     Subject: 'Hello world',
-        //     Body: 'hahahaha',
-        // }).then((message) => { // Send your form here using an http request
-        //     console.log('Your message has been sent!');
-
-        //     // Show a success message (it can also be an error message)
-        //     // and remove it after 5 seconds
-        //     this.alert = {
-        //         type: 'success',
-        //         message: 'Your request has been delivered! A member of our support staff will respond as soon as possible.'
-        //     };
-
-        //     setTimeout(() => {
-        //         this.alert = null;
-        //     }, 7000);
-
-        //     // Clear the form
-        //     this.clearForm();
-        // });
-
         this.alert = {
             type: 'success',
             message: 'This option will be available soon.'
