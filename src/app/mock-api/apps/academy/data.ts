@@ -39,7 +39,7 @@ export const courses = [
         totalSteps: 43,
         updatedAt: 'Sep 29, 2022',
         dueDate: 'Oct 03, 2022',
-        submittedOn: 'Oct 03, 2022',
+        submittedOn: 'Sep 30, 2022',
         featured: true,
         progress: {
             currentStep: 0,
@@ -57,7 +57,7 @@ export const courses = [
         totalSteps: 1,
         updatedAt: 'Oct 01, 2022',
         dueDate: 'Oct 08, 2022',
-        submittedOn: 'Oct 03, 2022',
+        submittedOn: 'In progress',
         featured: true,
         progress: {
             currentStep: 0,
@@ -750,7 +750,7 @@ export const demoCourseSteps = [
         subtitle: '',
         content: `<h2 class="text-2xl sm:text-3xl">Task:</h2>
         <div>
-           <h1>Coming Soon</h1> 
+           <h1>Coming Soon</h1>
         </div>
         `
     },
