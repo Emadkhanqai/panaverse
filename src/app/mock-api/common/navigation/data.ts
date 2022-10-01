@@ -29,7 +29,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
     ,
     {
         id: 'help',
-        title: 'Help Center',
+        title: 'Help & Guide',
         type: 'basic',
         icon: 'heroicons_solid:light-bulb',
         link: '/help-center'
@@ -62,7 +62,7 @@ export const compactNavigation: FuseNavigationItem[] = [
     ,
     {
         id: 'help',
-        title: 'Help Center',
+        title: 'Help & Guide',
         type: 'basic',
         icon: 'heroicons_solid:light-bulb',
         link: '/help-center'
@@ -96,7 +96,7 @@ export const futuristicNavigation: FuseNavigationItem[] = [
     ,
     {
         id: 'help',
-        title: 'Help Center',
+        title: 'Help & Guide',
         type: 'basic',
         icon: 'heroicons_solid:light-bulb',
         link: '/help-center'
@@ -131,7 +131,7 @@ export const horizontalNavigation: FuseNavigationItem[] = [
     ,
     {
         id: 'help',
-        title: 'Help Center',
+        title: 'Help & Guide',
         type: 'basic',
         icon: 'heroicons_solid:light-bulb',
         link: '/help-center'
