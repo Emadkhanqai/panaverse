@@ -27,7 +27,8 @@ import { authSignInRoutes } from 'app/modules/auth/sign-in/sign-in.routing';
         FuseCardModule,
         FuseAlertModule,
         SharedModule
-    ]
+    ],
+    exports:[AuthSignInComponent]
 })
 export class AuthSignInModule
 {

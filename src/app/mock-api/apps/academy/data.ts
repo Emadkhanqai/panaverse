@@ -750,7 +750,7 @@ export const demoCourseSteps = [
         subtitle: '',
         content: `<h2 class="text-2xl sm:text-3xl">Task:</h2>
         <div>
-           <h1>Coming Soon</h1>
+           <h1>Create presentation on metaverse.</h1>
         </div>
         `
     },

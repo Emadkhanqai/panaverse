@@ -1,4 +1,6 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable @typescript-eslint/naming-convention */
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, NgForm, Validators } from '@angular/forms';
 import { fuseAnimations } from '@fuse/animations';
@@ -22,7 +24,8 @@ export class HelpCenterSupportComponent implements OnInit {
      */
     constructor(
         private _formBuilder: UntypedFormBuilder,
-        private _helpCenterService: HelpCenterService
+        private _helpCenterService: HelpCenterService,
+        private http: HttpClient
     ) {
     }
 
@@ -59,10 +62,40 @@ export class HelpCenterSupportComponent implements OnInit {
      * Send the form
      */
     sendForm(): void {
-        this.alert = {
-            type: 'success',
-            message: 'This option will be available soon.'
-        };
+
+        const formData: any = new FormData();
+        formData.append('name', this.supportNgForm.value.name);
+        formData.append('email', this.supportNgForm.value.email);
+        formData.append('message', this.supportNgForm.value.message);
+        formData.append('type', 'support');
+
+        this.http.post('https://script.google.com/macros/s/AKfycbzBSXEQLg5J_b7a8Q-w_XliDHoV5F-9U0_yUu8x0I4vB6KrMXzdVWFy8Q47np3OROIpOA/exec', formData).subscribe(
+            (response) => {
+                // choose the response message
+                if (response['result'] == 'success') {
+                    this.alert = {
+                        type: 'success',
+                        message: 'Query submitted successfully.'
+                    };
+                } else {
+                    this.alert = {
+                        type: 'error',
+                        message: 'Oops! Something went wrong... Reload the page and try again.'
+                    };
+                }
+
+                console.log(response);
+            },
+            (error) => {
+                this.alert = {
+                    type: 'error',
+                    message: 'Oops! Something went wrong... Reload the page and try again.'
+                };
+                console.log(error);
+            }
+        );
+
+
 
         setTimeout(() => {
             this.alert = null;
